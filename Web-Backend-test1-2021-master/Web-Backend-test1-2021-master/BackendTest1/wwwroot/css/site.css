@@ -1,0 +1,31 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 100%;
+}
+
+.game-title {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.game-options .btn {
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.game-nav .btn {
+    display: block;
+    width: 100%;
+}

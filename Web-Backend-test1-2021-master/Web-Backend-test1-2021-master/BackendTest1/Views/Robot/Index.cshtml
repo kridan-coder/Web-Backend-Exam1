@@ -1,0 +1,95 @@
+﻿@model BackendTest1.Models.MainPageModel
+
+@{
+    ViewBag.Title = "Main page";
+}
+
+<form asp-action="Index" class="form-horizontal">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Construct a robot - Backend midterm 1</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>
+                        Statistics and availability info
+                    </h2>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <strong>$</strong>: @Model.Accounting.CurrMoney left / @Model.Accounting.SpentMoney used <br />
+                    <strong>Robots created</strong>: @Model.Accounting.CreatedRobots <br />
+                    <strong>Robots destroyed</strong>: @Model.Accounting.DestroyedRobots <br />
+                    <strong>Modules</strong>: @Model.Accounting.FreeModules left / @Model.Accounting.UsedModules used <br />
+                    <br />
+                    @for (int i = 0; i < Model.Storage.Details[DetailType.Body].Length; i++)
+                    {
+                        <strong>@Model.Storage.Details[DetailType.Body][i].Name</strong>@:: @Model.Storage.Details[DetailType.Body][i].AmountInStorage left / @Model.Storage.Details[DetailType.Body][i].AmountOnRobots used <br />
+                    }
+                    <br />
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    @for (int i = 0; i < Model.Storage.Details[DetailType.Head].Length; i++)
+                    {
+                        <strong>@Model.Storage.Details[DetailType.Head][i].Name</strong>@:: @Model.Storage.Details[DetailType.Head][i].AmountInStorage left / @Model.Storage.Details[DetailType.Head][i].AmountOnRobots used <br />
+                    }
+                    <br />
+                    @for (int i = 0; i < Model.Storage.Details[DetailType.ModHead].Length; i++)
+                    {
+                        <strong>@Model.Storage.Details[DetailType.ModHead][i].Name</strong>@:: @Model.Storage.Details[DetailType.ModHead][i].AmountInStorage left / @Model.Storage.Details[DetailType.ModHead][i].AmountOnRobots used <br />
+                    }
+                    <br />
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    @for (int i = 0; i < Model.Storage.Details[DetailType.ModBody].Length; i++)
+                    {
+                        <strong>@Model.Storage.Details[DetailType.ModBody][i].Name</strong>@:: @Model.Storage.Details[DetailType.ModBody][i].AmountInStorage left / @Model.Storage.Details[DetailType.ModBody][i].AmountOnRobots used <br />
+                    }
+                    <br />
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    @for (int i = 0; i < Model.Storage.Details[DetailType.Arms].Length; i++)
+                    {
+                        <strong>@Model.Storage.Details[DetailType.Arms][i].Name</strong>@:: @Model.Storage.Details[DetailType.Arms][i].AmountInStorage left / @Model.Storage.Details[DetailType.Arms][i].AmountOnRobots used <br />
+                    }
+                    <br />
+                    @for (int i = 0; i < Model.Storage.Details[DetailType.ModArms].Length; i++)
+                    {
+                        <strong>@Model.Storage.Details[DetailType.ModArms][i].Name</strong>@:: @Model.Storage.Details[DetailType.ModArms][i].AmountInStorage left / @Model.Storage.Details[DetailType.ModArms][i].AmountOnRobots used <br />
+                    }
+                    <br />
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <button name="CreatePressed" value=true class="btn btn-info" href="#">
+                        Create new
+                    </button>
+                </div>
+            </div>
+            <div class="row robots-list">
+                @for (int i = 0; i < Model.Storage.Robots.Count; i++)
+                {
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body pb-1">
+                                <div class="stretched-wrapper position-relative">
+                                    <h5 class="card-title"><a name="Check" value=@i href="#" class="stretched-link">@Model.Storage.Robots[i].Name</a></h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">@Model.Storage.Robots[i].Details.First(x => x.Type == DetailType.Body).Name</h6>
+                                    <p class="card-text mb-2">
+                                        <strong>$</strong>: @Model.Storage.Robots[i].TotalCost <br />
+                                        <strong>Modules</strong>: @Model.Storage.Robots[i].TotalMods
+                                    </p>
+                                </div>
+                                <div class="row">
+                                    <button name="Edit" value=@i href="#" class="col-6 btn btn-warning rounded-0">Edit</button>
+                                    <button name="Delete" value=@i href="#" class="col-6 btn btn-danger rounded-0">Del</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</form>

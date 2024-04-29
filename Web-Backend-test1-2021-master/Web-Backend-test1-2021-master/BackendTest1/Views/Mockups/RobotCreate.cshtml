@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "RobotCreate";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <h2>Create Robot: 10000$ left</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-8 offset-2 mb-4">
+                <div class="form-group">
+                    <label for="robotName">Name</label>
+                    <input class="form-control" id="robotName" placeholder="Enter robot name">
+                </div>
+                <label>Robot body type</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bodyType" id="bodyType1" value="1" checked>
+                    <label class="form-check-label" for="bodyType1">
+                        Body Type 1 (200$)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bodyType" id="bodyType2" value="2">
+                    <label class="form-check-label" for="bodyType2">
+                        Body Type 2 (300$)
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="bodyType" id="bodyType3" value="3" disabled>
+                    <label class="form-check-label" for="bodyType3">
+                        Body Type 3 (200$)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bodyType" id="bodyType4" value="4">
+                    <label class="form-check-label" for="bodyType4">
+                        Body Type 4 (200$)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 offset-2"></div>
+            <div class="col-4 col-md-2"> </div>
+            <div class="col-2"><a href="#" class="btn btn-primary">Next</a></div>
+        </div>
+    </div>
+</div>
+

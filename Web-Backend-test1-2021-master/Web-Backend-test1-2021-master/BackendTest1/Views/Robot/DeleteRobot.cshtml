@@ -1,0 +1,26 @@
+﻿@model BackendTest1.Models.DeletePageModel
+
+<form asp-action="DeleteRobot" class="form-horizontal">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <input asp-for="Name" type="hidden" />
+    <input asp-for="Cost" type="hidden" />
+    <input asp-for="Mods" type="hidden" />
+
+    <div class="row">
+        <div class="col-12">
+            <h2>Delete @Model.Name</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+            Are you sure you want to delete this robot? <br />
+            It costs @Model.Cost$<br />
+            And contains of @Model.Mods mods. <br />
+            <br />
+            <button name="Delete" value="true" class="btn btn-danger" href="#">Yes, delete this robot</button>
+            <button name="Delete" value="false" class="btn btn-primary" href="#">Cancel</button>
+        </div>
+    </div>
+</form>
